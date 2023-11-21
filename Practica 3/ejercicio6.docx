@@ -1,0 +1,55 @@
+def opcion_1
+    a = [1, nil, 3, nil, 5, nil, 7, nil, 9, nil]
+    b = 3
+    c = a.map do |x|
+        x * b
+    end
+    puts c.inspect
+rescue
+    0
+end
+
+opcion_1: Este método imprimirá el resultado de c.inspect, que será [3, 0, 9, 0, 15, 0, 21, 0, 27, 0].
+La excepción no se maneja dentro del método opcion_1, por lo que el manejo de excepciones no se ejecutará.
+
+def opcion_2
+    c = begin
+        a = [1, nil, 3, nil, 5, nil, 7, nil, 9, nil]
+        b = 3
+        a.map do |x|
+            x * b
+        end
+        rescue
+            0
+        end
+    puts c.inspect
+end
+
+opcion_2: Este método imprimirá el resultado de c.inspect, que será [3, 0, 9, 0, 15, 0, 21, 0, 27, 0].
+La excepción se maneja dentro del bloque begin...rescue, por lo que el resultado se establecerá en 0 en caso de que se produzca una excepción.
+
+
+def opcion_3
+    a = [1, nil, 3, nil, 5, nil, 7, nil, 9, nil]
+    b = 3
+    c = a.map { |x| x * b } rescue 0
+    puts c.inspect
+end
+
+opcion_3: Este método imprimirá el resultado de c.inspect, que será [3, 0, 9, 0, 15, 0, 21, 0, 27, 0].
+La excepción se maneja usando rescue directamente después de la llamada a map.
+Si se produce una excepción, se establecerá c en 0.
+
+def opcion_4
+    a = [1, nil, 3, nil, 5, nil, 7, nil, 9, nil]
+    b = 3
+    c = a.map { |x| x * b rescue 0 }
+    puts c.inspect
+end
+
+opcion_4: Este método imprimirá el resultado de c.inspect, que será [3, 0, 9, 0, 15, 0, 21, 0, 27, 0].
+Al igual que en el método opcion_3, la excepción se maneja utilizando rescue directamente después de la llamada a map.
+Si se produce una excepción, se establecerá c en 0.
+
+En resumen, en los métodos opcion_1, opcion_2, opcion_3, y opcion_4, la excepción se maneja de manera efectiva utilizando rescue, lo que resulta en que c se establezca en 0 en caso de excepción.
+Los resultados son idénticos en todos los casos, ya que todos manejan la excepción de la misma manera.

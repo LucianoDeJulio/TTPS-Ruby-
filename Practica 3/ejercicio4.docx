@@ -1,0 +1,42 @@
+retry es una palabra clave que se utiliza en un bloque de manejo de excepciones para reintentar la ejecución de un bloque de código desde el principio en caso de que se produzca una excepción.
+La sentencia retry se usa para reiniciar la ejecución del bloque que está dentro de la estructura de manejo de excepciones en el que se encuentra.
+
+Por ejemplo, puedes usar retry de la siguiente manera:
+
+begin
+  # Algo que puede lanzar una excepción
+rescue SomeException
+  # Manejar la excepción
+  retry # Vuelve a intentar el bloque desde el principio
+end
+
+El uso de retry puede ser útil en situaciones en las que se espera que ocurran errores temporales o en bucles donde deseas volver a intentar una operación en caso de una excepción.
+
+Sin embargo, para evitar caer en un bucle infinito al usar retry, debes tener cuidado y seguir algunas buenas prácticas:
+
+1- Establecer un contador de intentos: Define un contador para llevar un registro del número de intentos.
+Limita el número de intentos permitidos para evitar un bucle infinito.
+Puedes hacerlo con una condición que verifique el número de intentos y detenga el bucle después de un límite específico.
+
+2- Agregar un temporizador: Puedes incluir un tiempo de espera entre los intentos utilizando sleep para evitar un bucle de reintentos inmediatos.
+Esto permite esperar un tiempo antes de volver a intentar la operación.
+
+Un ejemplo de cómo podrías usar retry con un contador y un temporizador:
+
+max_retries = 3
+retries = 0
+
+begin
+  # Algo que puede lanzar una excepción
+rescue SomeException
+  if retries < max_retries
+    retries += 1
+    sleep(5) # Espera 5 segundos antes de reintentar
+    retry
+  else
+    # Manejar el error o lanzar una excepción personalizada
+  end
+end
+
+Siguiendo estas prácticas, puedes evitar un bucle infinito y garantizar que haya un límite en la cantidad de intentos cuando utilizas retry en Ruby.
+

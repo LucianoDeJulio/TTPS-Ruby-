@@ -1,0 +1,22 @@
+El comando gem y Bundler son dos herramientas relacionadas con la gestión de gemas en el ecosistema de Ruby, pero tienen diferentes propósitos y funcionalidades.
+Las principales diferencias entre ambas son:
+
+    gem:
+        gem es la herramienta central de RubyGems, que es el sistema de gestión de paquetes de Ruby. Permite instalar, actualizar y eliminar gemas individuales en el sistema.
+        Se utiliza principalmente para administrar gemas a nivel del sistema y se instalan gemas a nivel global o de usuario, según la configuración del sistema.
+        Puede utilizarse para instalar gemas directamente desde el registro público de RubyGems.
+        No maneja la resolución de dependencias de manera automática, lo que significa que no gestiona automáticamente las dependencias de las gemas instaladas.
+
+    Bundler:
+        Bundler es una herramienta que se utiliza para gestionar las dependencias de un proyecto Ruby. Su objetivo principal es garantizar que un proyecto tenga todas sus dependencias correctas y en las versiones adecuadas.
+        Se utiliza en el contexto de proyectos específicos y gestiona las dependencias en un archivo llamado Gemfile, que lista las gemas necesarias para un proyecto particular.
+        Realiza la resolución de dependencias y garantiza que las versiones correctas de las gemas se instalen en el proyecto.
+        Las gemas se instalan localmente en el directorio del proyecto, lo que permite la creación de entornos aislados para proyectos específicos.
+
+En resumen, las diferencias clave entre gem y Bundler son:
+
+    gem es una herramienta para instalar gemas en el sistema a nivel global o de usuario, mientras que Bundler se utiliza para administrar dependencias en proyectos específicos.
+
+    Bundler se encarga de la resolución de dependencias, asegurándose de que las gemas necesarias se instalen en las versiones correctas en el proyecto, mientras que gem no realiza esta tarea de forma automática.
+
+En muchos proyectos de Ruby, es común utilizar tanto gem como Bundler en conjunto. gem se usa para instalar gemas a nivel de sistema o de usuario, y Bundler se utiliza para gestionar las dependencias de un proyecto específico, lo que permite un control más preciso de las versiones de las gemas en el proyecto.

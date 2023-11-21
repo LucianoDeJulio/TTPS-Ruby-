@@ -1,0 +1,18 @@
+El comando gem server se utiliza para iniciar un servidor web local que proporciona una interfaz gráfica de usuario (GUI) para explorar gemas, ver documentación y realizar búsquedas en las gemas instaladas en tu sistema.
+El servidor web generado por gem server permite acceder a la documentación de las gemas, incluyendo las clases y métodos definidos en ellas, así como la documentación generada a través de RDoc.
+
+Al usar el comando gem server, puedes obtener la siguiente información y funcionalidades:
+
+    1- Exploración de gemas: Puedes navegar por la lista de gemas instaladas en tu sistema, lo que te permite ver información detallada sobre cada gema, como su nombre, versión, descripción y autor.
+
+    2- Documentación de gemas: Puedes acceder a la documentación de las gemas instaladas, lo que incluye la documentación generada mediante RDoc. Esto te permite ver cómo se utilizan las clases y métodos dentro de una gema, lo que puede ser útil para comprender su funcionamiento.
+
+    3- Búsqueda de gemas: Puedes buscar gemas específicas por nombre o descripción, lo que facilita encontrar la gema que necesitas en función de tus requisitos.
+
+    4- Enlaces a proyectos en línea: A menudo, el servidor gem server también proporciona enlaces a las páginas de proyectos en línea de las gemas, lo que te permite obtener información adicional sobre la gema, como su repositorio de código y problemas relacionados.
+
+    5- Navegación interactiva: El servidor gem server proporciona una interfaz gráfica que permite una navegación más interactiva y conveniente que simplemente consultar la línea de comandos.
+
+Para utilizar el comando gem server, simplemente ejecuta gem server en tu terminal y luego abre tu navegador web en la dirección http://localhost:8808. A partir de ahí, podrás explorar y acceder a la información de las gemas instaladas en tu sistema de manera más cómoda y visual.
+
+Este servidor web local facilita la gestión y exploración de gemas en tu sistema, lo que puede ser útil para los desarrolladores de Ruby que desean obtener información detallada sobre las gemas instaladas y su documentación.

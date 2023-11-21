@@ -1,0 +1,51 @@
+Las sentencias begin..rescue..else y ensure en Ruby se utilizan para manejar excepciones y controlar el flujo de un programa en situaciones donde es posible que se produzcan errores.
+Aquí hay al menos dos casos concretos en los que usarías estas sentencias en un script Ruby:
+
+1- Lectura de un archivo con manejo de errores:
+
+Supongamos que estás escribiendo un script Ruby para leer datos desde un archivo y procesarlos.
+En este caso, es importante manejar posibles errores que pueden ocurrir durante la lectura del archivo, como la falta del archivo o problemas de acceso.
+Puedes usar begin..rescue..else y ensure de la siguiente manera:
+
+begin
+  file = File.open('datos.txt', 'r')
+  data = file.read
+rescue Errno::ENOENT
+  puts "El archivo no se encuentra."
+rescue Errno::EACCES
+  puts "No tienes permiso para acceder al archivo."
+else
+  # Procesar los datos leídos del archivo
+  puts "Datos leídos correctamente: #{data}"
+ensure
+  file.close if file
+end
+
+En este caso, begin se utiliza para envolver el código propenso a errores.
+Si se produce una excepción, el bloque rescue maneja la excepción específica,
+como Errno::ENOENT para archivo no encontrado o Errno::EACCES para permisos de acceso insuficientes.
+El bloque else se ejecutará si no se produce ninguna excepción, y el bloque ensure se asegurará de que el archivo se cierre adecuadamente, independientemente de si se produjo una excepción o no.
+
+2- Conexión a una base de datos con manejo de errores:
+
+Supongamos que estás escribiendo un script Ruby que se conecta a una base de datos.
+En este caso, es importante manejar posibles errores de conexión a la base de datos y asegurarse de que la conexión se cierre correctamente al final.
+Puedes usar begin..rescue..else y ensure de la siguiente manera:
+
+require 'pg' # Por ejemplo, para una conexión a PostgreSQL
+
+begin
+  conn = PG.connect(dbname: 'mi_basededatos')
+rescue PG::Error => e
+  puts "Error de conexión a la base de datos: #{e.message}"
+else
+  # Realizar operaciones en la base de datos
+ensure
+  conn.close if conn
+end
+
+En este ejemplo, begin envuelve el código que intenta conectarse a la base de datos.
+Si se produce una excepción de tipo PG::Error, el bloque rescue manejará el error y mostrará un mensaje.
+El bloque else se ejecutará si la conexión se establece correctamente, y el bloque ensure se asegurará de que la conexión se cierre adecuadamente, incluso si se produce un error durante la conexión.
+
+En ambos casos, begin..rescue..else se utiliza para manejar excepciones específicas que pueden ocurrir en situaciones de lectura de archivos o conexión a bases de datos, mientras que ensure garantiza que los recursos se limpien adecuadamente, como el cierre de archivos o conexiones de bases de datos, independientemente de si se producen errores o no.

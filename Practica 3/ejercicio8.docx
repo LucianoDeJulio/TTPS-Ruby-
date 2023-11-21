@@ -1,0 +1,48 @@
+Para implementar una nueva clase de excepción que indique que la entrada del usuario no es un valor numérico entero válido, se puede crear una clase personalizada que herede de la clase StandardError,
+que es una subclase de la clase base Exception. Esto proporciona una estructura adecuada para manejar excepciones personalizadas.
+
+Un ejemplo de cómo podría ser esa clase de excepción:
+
+class ValorNoEnteroValido < StandardError
+  def initialize
+    super("La entrada del usuario no es un valor numérico entero válido.")
+  end
+end
+
+Esta clase de excepción personalizada hereda de StandardError y proporciona un mensaje de error descriptivo en su constructor.
+Cuando se lanza esta excepción, el mensaje de error indicará que la entrada del usuario no es un valor numérico entero válido.
+
+Luego, utilizo esta excepción personalizada en el script modificado anterior para manejar errores relacionados con la entrada de números inválidos:
+
+begin
+  cantidad = 0
+  while cantidad < 15
+    puts 'Cuál es la cantidad de números que ingresará? Debe ser al menos 15'
+    cantidad = Integer(gets)
+  end
+
+  # Luego se almacenan los números
+  numeros = []
+  cantidad.times do |i|
+    begin
+      puts "Ingrese el número ##{i + 1}"
+      numero = Integer(gets)
+      raise ValorNoEnteroValido unless numero.is_a?(Integer)
+      numeros << numero
+    rescue ValorNoEnteroValido
+      puts "Error: La entrada del usuario no es un valor numérico entero válido."
+      retry
+    end
+  end
+
+  # Resto del script...
+rescue Interrupt
+  puts "\nScript interrumpido por el usuario."
+rescue => e
+  puts "Error inesperado: #{e.message}"
+end
+
+En este ejemplo, si el usuario ingresa una entrada que no es un valor numérico entero válido, se lanza la excepción ValorNoEnteroValido.
+Esta excepción personalizada se maneja específicamente dentro del bloque rescue, y se muestra un mensaje de error indicando el problema.
+
+La excepción personalizada ValorNoEnteroValido hereda de StandardError, que es una clase comúnmente utilizada para excepciones personalizadas en Ruby, y proporciona un mensaje claro y descriptivo

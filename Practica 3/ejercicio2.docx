@@ -1,0 +1,34 @@
+raise y throw son dos mecanismos en Ruby que se utilizan para manejar excepciones y controlar
+la transferencia de flujo en un programa, pero tienen diferentes propósitos y comportamientos:
+
+raise:
+
+- Se utilia para generar y lanar excepciones en Ruby.
+- Puedes usar 'raise' para indicar que se ha producido un error o una condicion excepcional en tu codigo.
+- Puedes lanar una excepcion especifica proporcionando el tipo de excepción y, opcionalmente, un mensaje descriptivo.
+- 'raise' permite que el flujo del programa se desplace hacia un controlador de excepciones que coincide con el tipo de excepcion lanzada, si esta presente.
+
+Ejemplo de uso de 'raise':
+
+def divide(x, y)
+  raise ArgumentError, "Divisor no puede ser cero" if y == 0
+  return x / y
+end
+
+throw:
+
+- Se utiliza para lanzar una excepción no relacionada con errores, sino para transferir el control de flujo de manera incodicional.
+- Se utiliza en combinacion con 'catch', que define un bloque que captura la excepcion lanzada por 'throw'.
+- 'throw' y 'catch' se utilizan para implementar control de flujo no local en Ruby y se pueden usar para salir de bucles anidados u otros bloques de codigo.
+
+Ejemplo de uso de 'throw' y 'catch':
+
+result = catch(:done) do
+  (1..10).each do |x|
+    (1..10).each do |y|
+      throw :done, x * y if x * y == 42
+    end
+  end
+end
+
+En resumen, la diferencia principal es que raise se utiliza para manejar excepciones y errores, mientras que throw se utiliza para el control de flujo no local y permite la transferencia de flujo incondicionalmente. La elección entre uno u otro depende de tus necesidades específicas en tu código. raise se utiliza para manejar errores y condiciones excepcionales, mientras que throw se utiliza para controlar la transferencia de flujo en situaciones específicas donde no se trata de un error.

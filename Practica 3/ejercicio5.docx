@@ -1,0 +1,23 @@
+redo:
+
+- Se utiliza en el contexto de bucles, como loop, while, o for.
+Cuando se encuentra la palabra clave redo, reinicia la iteración actual del bucle, sin salir del bucle en sí.
+
+- Se utiliza para repetir la iteración actual del bucle sin avanzar al siguiente elemento o condición de cierre.
+Puede ser útil cuando deseas repetir una iteración del bucle con la misma entrada.
+
+- redo no se relaciona directamente con el manejo de excepciones; en su lugar, se utiliza para controlar el flujo de ejecución de bucles.
+
+Ejemplo:
+
+count = 0
+while count < 5
+  # Realiza alguna acción
+  if some_condition
+    redo # Reinicia la iteración actual del bucle
+  end
+  count += 1
+end
+
+La principal diferencia entre redo y retry radica en su contexto de aplicación: retry se utiliza en el manejo de excepciones para volver a intentar un bloque de código, mientras que redo se usa en bucles para repetir la iteración actual del bucle sin avanzar al siguiente elemento o condición de cierre.
+Cada uno tiene su propio propósito y se utiliza en situaciones diferentes.

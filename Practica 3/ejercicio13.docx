@@ -1,0 +1,20 @@
+Las gemas que se instalan con el comando gem se almacenan en directorios específicos en el sistema de archivos de Ruby.
+La ubicación exacta puede variar según la configuración del sistema, pero generalmente se encuentran en el directorio de gemas del sistema o del usuario.
+Se puede usar el comando gem which para determinar la ubicación de una gema específica. Por ejemplo:
+
+sh
+
+gem which gem_name
+
+Donde "gem_name" es el nombre de la gema que deseas buscar. El comando gem which te mostrará la ubicación de la gema en el sistema de archivos.
+
+Por otro lado, las gemas que se instalan con el comando bundle se almacenan en el directorio del proyecto específico en el que se ejecuta Bundler.
+Por defecto, Bundler crea un directorio llamado vendor/bundle en el directorio del proyecto y almacena las gemas allí. Puedes utilizar el comando bundle show para mostrar la ubicación de las gemas del proyecto:
+
+sh
+
+bundle show
+
+Este comando te proporcionará la ruta al directorio donde Bundler almacena las gemas del proyecto actual.
+
+La principal diferencia es que las gemas instaladas con gem son globales o de usuario y se almacenan en ubicaciones del sistema o del usuario, mientras que las gemas instaladas con Bundler son específicas de un proyecto y se almacenan en el directorio del proyecto. Esto permite la creación de entornos aislados para proyectos individuales y un mayor control sobre las dependencias de cada proyecto.

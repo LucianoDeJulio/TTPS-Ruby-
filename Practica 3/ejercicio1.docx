@@ -1,0 +1,16 @@
+Ruby tiene una jerarquía de clases para las excepciones que se utiliza para manejar errores en programas. Aquí están algunas de las clases relevantes en la jerarquía de excepciones de Ruby y para qué se utilizan:
+
+- Exception: es la clase base de todas las excepciones en Ruby.
+- StandardError: es una clase base para la mayoría de las excepciones comunes. La mayoría de las excepciones que se manejan en programas Ruby heredan de esta clase.
+- RuntimeError es una subclase de StandardError que se utiliza para excepciones generales de tiempo de ejecución.
+- TypeError es una subclase de StandardError que se utiliza cuando se produce un error de tipo, por ejemplo, cuando se intenta realizar una operación no válida en un objeto.
+- NameError es una subclase de StandardError que se utiliza cuando se intenta acceder a una variable o constante que no está definida.
+- ArgumentError es una subclase de StandardError que se utiliza cuando se pasan argumentos incorrectos a un método o función.
+- ZeroDivisionError es una subclase de StandardError que se utiliza cuando se intenta dividir un número por cero.
+- StopIteration es una subclase de Exception que se utiliza para señalar el final de una iteración en un generador.
+- NotImplementedError es una subclase de StandardError que se utiliza cuando se llama a un método que aún no se ha implementado en una subclase.
+- IOError es una subclase de StandardError que se utiliza para manejar errores relacionados con operaciones de E/S, como la lectura o escritura de archivos.
+- SystemExit es una subclase de Exception que se utiliza para indicar la finalización del programa con un código de salida específico.
+- SystemStackError es una subclase de Exception que se utiliza para manejar errores relacionados con el desbordamiento de la pila del sistema.
+
+Es importante mencionar que, en la mayoría de los casos, no es necesario manejar todas estas excepciones individualmente en un programa Ruby. Puedes capturar excepciones genéricas como StandardError o Exception para manejar errores de manera más general, o también puedes manejar excepciones específicas cuando sea necesario. La elección depende de tus necesidades específicas de manejo de errores.

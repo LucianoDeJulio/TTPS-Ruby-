@@ -1,0 +1,21 @@
+Semantic Versioning, también conocido como SemVer, es un sistema de numeración de versiones que se utiliza comúnmente en el desarrollo de software para gestionar las actualizaciones y cambios en una biblioteca, aplicación o proyecto. La finalidad principal de SemVer es proporcionar una forma coherente y semántica de comunicar las actualizaciones de software a los desarrolladores y usuarios finales, de modo que puedan comprender rápidamente la naturaleza y el impacto de una nueva versión.
+
+Una versión SemVer consta de tres partes principales: MAJOR.MINOR.PATCH. Cada parte tiene un significado específico:
+
+1- MAJOR (Versión principal): Se incrementa cuando se realizan cambios incompatibles en la API, lo que significa que las nuevas versiones pueden requerir modificaciones en el código existente para ser compatibles con la versión anterior. Esto incluye cambios que rompen la retrocompatibilidad y pueden causar problemas en aplicaciones que dependen de la versión anterior.
+
+2- MINOR (Versión secundaria): Se incrementa cuando se añaden nuevas funcionalidades o características de forma retrocompatible. Esto significa que se pueden agregar nuevas funcionalidades sin romper el código existente, lo que permite a los usuarios actualizar a la nueva versión sin realizar cambios significativos en sus aplicaciones.
+
+3- PATCH (Versión de corrección): Se incrementa cuando se realizan correcciones o mejoras menores que no afectan la retrocompatibilidad. Estas son actualizaciones que solucionan errores o realizan mejoras menores en el software sin introducir cambios significativos en la API.
+
+Además de estas tres partes, SemVer permite el uso de etiquetas de versión para indicar estados especiales, como versiones beta, alfa o candidatas a lanzamiento. Por ejemplo, "1.2.3-beta" podría ser una versión en desarrollo que aún no se considera estable.
+
+as situaciones en las que debería cambiarse cada parte de una versión son las siguientes:
+
+    - MAJOR: Debe incrementarse cuando se realizan cambios que rompen la retrocompatibilidad con las versiones anteriores o introducen cambios significativos en la API.
+
+    - MINOR: Debe incrementarse cuando se agregan nuevas funcionalidades o características de forma retrocompatible, sin romper la retrocompatibilidad.
+
+    - PATCH: Debe incrementarse cuando se realizan correcciones de errores o mejoras menores que no afectan la retrocompatibilidad.
+
+Es importante seguir estas reglas de versionamiento para que los desarrolladores y usuarios puedan comprender de manera rápida y precisa qué cambios y actualizaciones se han realizado en una versión de software y cómo pueden afectar a sus aplicaciones. SemVer proporciona una forma estándar y semántica de comunicar estas actualizaciones, lo que facilita la gestión de dependencias y la toma de decisiones sobre cuándo y cómo actualizar el software.
